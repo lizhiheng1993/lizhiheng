@@ -1,0 +1,16 @@
+php@7.2 is keg-only, which means it was not symlinked into /usr/local,
+because this is an alternate version of another formula.
+
+If you need to have php@7.2 first in your PATH run:
+  echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' >> ~/.bash_profile
+  echo 'export PATH="/usr/local/opt/php@7.2/sbin:$PATH"' >> ~/.bash_profile
+
+For compilers to find php@7.2 you may need to set:
+  export LDFLAGS="-L/usr/local/opt/php@7.2/lib"
+  export CPPFLAGS="-I/usr/local/opt/php@7.2/include"
+
+
+To have launchd start php@7.2 now and restart at login:
+  brew services start php@7.2
+Or, if you don't want/need a background service you can just run:
+  php-fpm
